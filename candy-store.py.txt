@@ -1,0 +1,25 @@
+# Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
+import random
+
+def buying_candy( amount_of_money ) :
+  if amount_of_money <= 0:
+    return 0
+  else:
+      dp = {
+        0: 1,
+        1: 2
+      }
+      unique_ways = 0
+      option = random.uniform(0, 1)
+      
+      while amount_of_money > 0:
+          option = random.uniform(0, 1)
+          pay_amount= dp[option]
+         
+          unique_ways=unique_ways+1
+          amount_of_money=amount_of_money-pay_amount
+      return unique_ways
+
+
+print (buying_candy( ))

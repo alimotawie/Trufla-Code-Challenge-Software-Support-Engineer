@@ -1,0 +1,82 @@
+	 var stackHolder = {
+	count: 6,
+	storage : [
+	  1,
+	  '{id: 1,value: "obj"}',
+	  "stringHolder",
+	  46,
+    12,
+    13
+	]
+  }
+
+ function push (value) {
+
+   var ArrCount=stackHolder.storage;
+  
+stackHolder.storage.splice(ArrCount.length,0, value)
+	
+	return stackHolder.storage;
+
+  }
+  
+
+  function pop () {
+    if (stackHolder.count === 0) {
+	  return [];
+    }
+    else
+       
+    var poppedItem = stackHolder.storage[stackHolder.count-1];
+    delete stackHolder.storage[poppedItem];
+	  stackHolder.count = stackHolder.count-1;
+    return poppedItem;
+  }
+  
+
+ function peek () {
+
+     var lastItemCount=stackHolder.storage.length;
+
+	return [stackHolder.storage[lastItemCount-1]];
+  }
+  
+ 
+  function swap  () {
+   
+   var Arrcount=stackHolder.storage.length
+
+    var lastItemIndex = Arrcount-1;
+    
+    var lastItem = stackHolder.storage[lastItemIndex]
+    var SwapedItemIndex = Arrcount-2;
+  
+
+stackHolder.storage[lastItemIndex] = stackHolder.storage[SwapedItemIndex]
+stackHolder.storage[SwapedItemIndex] = lastItem;
+
+	return stackHolder.storage;
+  }
+
+function stack( stackOperation, stackValue ) {
+
+  switch(stackOperation) {
+	case 'push':
+	    console.log (push(stackValue));
+	break;
+	case 'pop':
+	   console.log (pop());
+	break;
+	case 'swap':
+	  console.log (swap());
+	break;
+	case 'peek':
+	  console.log (peek());
+	break;
+	default:
+	   console.log(stackHolder.storage);
+  };
+};
+ 
+//call 
+stack();

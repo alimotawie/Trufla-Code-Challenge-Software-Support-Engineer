@@ -1,0 +1,11 @@
+SELECT county.name as country , COUNT(employee_id) as totalEmp , 
+FROM employee
+INNER JOIN  employee_working_center
+ON employee.id=employee_working_center.employee_id;
+INNER JOIN working_center
+on employee_working_center.working_center_id = working_center.id
+Right join country
+on working_center.country_id = country.id
+WHERE DATEDIFF(dayofyear, employee_working_center.start_date, GETDATE()) >= 365 and employee_working_center.working_center_id != NULL
+GROUP BY country
+ORDER BY totalEmp DESC , country;
